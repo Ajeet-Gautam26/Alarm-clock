@@ -22,7 +22,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
 // Event Listener added to Set Alarm Button
 setAlarmButton.addEventListener("click", getInput);
 
-
+// adding zeroes to its drop down menu
 function dropDownMenu(start, end, element) {
   for (let i = start; i <= end; i++) {
     const dropDown = document.createElement("option");
@@ -32,7 +32,7 @@ function dropDownMenu(start, end, element) {
   }
 }
 
-
+// getcurrent time funtion is to fetch current time 
 function getCurrentTime() {
   let time = new Date();
   time = time.toLocaleTimeString("en-US", {
@@ -68,7 +68,7 @@ function convertToTime(hour, minute, second, amPm) {
   return `${parseInt(hour)}:${minute}:${second} ${amPm}`;
 }
 
-
+// for giving the message that alarm is ringing
 function setAlarm(time, fetching = false) {
   const alarm = setInterval(() => {
     if (time === getCurrentTime()) {
@@ -123,7 +123,7 @@ function fetchAlarm() {
   });
 }
 
-
+// to delete exixting alarm
 function deleteAlarm(event, time, intervalId) {
   const self = event.target;
 
@@ -135,7 +135,7 @@ function deleteAlarm(event, time, intervalId) {
   deleteAlarmFromLocal(time);
   alarm.remove();
 }
-
+// delete alarm from local storage fuction
 function deleteAlarmFromLocal(time) {
   const alarms = checkAlarams();
 
